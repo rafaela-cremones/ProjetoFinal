@@ -1,4 +1,5 @@
 
+import java.util.Random;
 import javax.swing.JOptionPane;
 import jdk.nashorn.internal.scripts.JO;
 
@@ -54,7 +55,7 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Cooper Black", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 102));
         jLabel1.setText("GURU ON-LINE");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 24, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         jLabel2.setText("NOME");
@@ -121,7 +122,7 @@ public class trabalhorafa01 extends javax.swing.JFrame {
                 btLimparActionPerformed(evt);
             }
         });
-        jPanel1.add(btLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
+        jPanel1.add(btLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         jLabel7.setText("ALTURA");
@@ -133,13 +134,11 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
         textResumo1.setBackground(new java.awt.Color(204, 204, 255));
-        textResumo1.setForeground(new java.awt.Color(204, 204, 255));
         textResumo1.setCaretColor(new java.awt.Color(204, 204, 255));
         textResumo1.setDisabledTextColor(new java.awt.Color(204, 204, 255));
         jPanel1.add(textResumo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 600, -1));
 
         textResumo2.setBackground(new java.awt.Color(204, 204, 255));
-        textResumo2.setForeground(new java.awt.Color(204, 204, 255));
         textResumo2.setCaretColor(new java.awt.Color(204, 204, 255));
         textResumo2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textResumo2.setDisabledTextColor(new java.awt.Color(204, 204, 255));
@@ -151,7 +150,6 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         jPanel1.add(textResumo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 600, -1));
 
         textResumo3.setBackground(new java.awt.Color(204, 204, 255));
-        textResumo3.setForeground(new java.awt.Color(204, 204, 255));
         textResumo3.setCaretColor(new java.awt.Color(204, 204, 255));
         textResumo3.setDisabledTextColor(new java.awt.Color(204, 204, 255));
         jPanel1.add(textResumo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 600, -1));
@@ -183,9 +181,15 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         textAltura.setText(null);
         textPeso.setText(null);
         JOptionPane.showMessageDialog(null, "Limpo com sucesso! ");
-        
+
     }//GEN-LAST:event_btLimparActionPerformed
 
+    public int gerarNumero() {
+        Random num = new Random();
+        int n = num.nextInt(10);
+        return n;
+
+    }
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
         String nome, tratamento1, tratamento2;
         double altura;
@@ -196,17 +200,18 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         mesNasc = Integer.parseInt(textMes.getText());
         diaNasc = Integer.parseInt(textDia.getText());
         idade = 2024 - anoNasc;
-        
-        
+        textResumo3.setText(String.valueOf(gerarNumero()));
+
+
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void textNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeActionPerformed
-        
+
     }//GEN-LAST:event_textNomeActionPerformed
 
     private void btFemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFemActionPerformed
         String tratamento1;
-        tratamento1 = "Sra";       
+        tratamento1 = "Sra";
     }//GEN-LAST:event_btFemActionPerformed
 
     private void btMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMascActionPerformed
