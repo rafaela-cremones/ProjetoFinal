@@ -55,7 +55,7 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Cooper Black", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 102));
         jLabel1.setText("GURU ON-LINE");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         jLabel2.setText("NOME");
@@ -152,6 +152,11 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         textResumo3.setBackground(new java.awt.Color(204, 204, 255));
         textResumo3.setCaretColor(new java.awt.Color(204, 204, 255));
         textResumo3.setDisabledTextColor(new java.awt.Color(204, 204, 255));
+        textResumo3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textResumo3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(textResumo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 600, -1));
 
         jLabel9.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
@@ -184,25 +189,99 @@ public class trabalhorafa01 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btLimparActionPerformed
 
-    public int gerarNumero() {
-        Random num = new Random();
-        int n = num.nextInt(10);
-        return n;
+        public String gerarCor() {
+        String cor[] = {"Roxo", "Vermelho", "Preto", "Branco", "Rosa", "Azul", "Laranja", "Verde", "Amarelo"};
+        Random r = new Random();
+        int numero = r.nextInt(9);
+        return cor[numero];
 
     }
+        
+         public String fazerTratamento(){
+        String trato = " ";
+        
+          if (btFem.isSelected()){
+              trato = "Sra. ";
+          }else{
+                if (btMasc.isSelected()){
+                  trato = " ";
+       
+                   trato = "Sr. ";
+                }
+        }
+        return trato;
+    }      
+          public String gerarSigno(int dia, int mes) {
+        String signo = "";
+        if (dia >= 21 && dia <= 31 && mes == 3 || dia >= 01 && dia <= 20 && mes == 4) {
+            signo = "Áries";
+        } else if (dia >= 21 && dia <= 30 && mes == 4 || dia >= 1 && dia <= 20 && mes == 5) {
+            signo = "Touro";
+        } else if (dia >= 21 && dia <= 31 && mes == 5 || dia >= 1 && dia <= 20 && mes == 6) {
+            signo = "Gêmeos";
+        } else if (dia >= 21 && dia <= 30 && mes == 6 || dia >= 1 && dia <= 21 && mes == 7) {
+            signo = "Cancêr";
+        } else if (dia >= 22 && dia <= 31 && mes == 7 || dia >= 1 && dia <= 22 && mes == 8) {
+            signo = "Leão";
+        } else if (dia >= 23 && dia <= 30 && mes == 8 || dia >= 1 && dia <= 22 && mes == 9) {
+            signo = "Virgem";
+        } else if (dia >= 23 && dia <= 31 && mes == 9 || dia >= 1 && dia <= 22 && mes == 10) {
+            signo = "Libra";
+        } else if (dia >= 23 && dia <= 30 && mes == 10 || dia >= 1 && dia <= 21 && mes == 11) {
+            signo = "Escorpião";
+        } else if (dia >= 22 && dia <= 31 && mes == 11 || dia >= 1 && dia <= 21 && mes == 12) {
+            signo = "Sagitário";
+        } else if (dia >= 22 && dia <= 30 && mes == 12 || dia >= 1 && dia <= 20 && mes == 1) {
+            signo = "Capricórnio";
+        } else if (dia >= 21 && dia <= 31 && mes == 1 || dia >= 1 && dia <= 19 && mes == 2) {
+            signo = "Aquário";
+        } else if (dia >= 20 && dia <= 30 && mes == 2 || dia >= 1 && dia <= 20 && mes == 3) {
+        }
+        return signo;
+          }
+         
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
-        String nome, tratamento1, tratamento2;
-        double altura;
+        String nome, signo;
+        double altura, peso;
         int diaNasc, mesNasc, anoNasc, idade, sorte, caracte = 8;
         nome = textNome.getText();
         altura = Double.parseDouble(textAltura.getText());
+        peso = Double.parseDouble(textPeso.getText());
         anoNasc = Integer.parseInt(textAno.getText());
         mesNasc = Integer.parseInt(textMes.getText());
         diaNasc = Integer.parseInt(textDia.getText());
+       
         idade = 2024 - anoNasc;
-        textResumo3.setText(String.valueOf(gerarNumero()));
-
-
+        
+        if (mesNasc >= 1 && mesNasc <= 12) {
+        
+        } else {
+            JOptionPane.showMessageDialog(null, "Mês inválido!");
+        }
+        if (anoNasc >= 1900 && anoNasc <= 2024) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Ano inválido!");
+        }
+        if (diaNasc >= 1 && diaNasc <= 31) {
+        } else {
+            JOptionPane.showMessageDialog(null, "Dia inválido!");
+        }
+        if (nome.length() > caracte) {
+        } else {
+            JOptionPane.showMessageDialog(null, "“Legal se o seu nome fosse verdadeiro!");
+        }
+        
+        
+        sorte = (int) ((int) 1 + Math.random() * 99);
+        
+        textResumo1.setText(fazerTratamento() + nome + " nascida no dia " + diaNasc + "/" + mesNasc + "/" + anoNasc +" é do signo " + gerarSigno(diaNasc, mesNasc) + " seu número da sorte é " +sorte + " sua cor é " + gerarCor());
+        
+        textResumo2.setText(fazerTratamento() + nome + "você tem " + idade + "anos e seu peso é " + peso + " kg sua altura é " + altura + " m. ");
+   
+        {
+           
+        }
+       
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void textNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeActionPerformed
@@ -210,18 +289,20 @@ public class trabalhorafa01 extends javax.swing.JFrame {
     }//GEN-LAST:event_textNomeActionPerformed
 
     private void btFemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFemActionPerformed
-        String tratamento1;
-        tratamento1 = "Sra";
+
     }//GEN-LAST:event_btFemActionPerformed
 
     private void btMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMascActionPerformed
-        String tratamento2;
-        tratamento2 = "Sr";
+
     }//GEN-LAST:event_btMascActionPerformed
 
     private void textResumo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textResumo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textResumo2ActionPerformed
+
+    private void textResumo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textResumo3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textResumo3ActionPerformed
 
     /**
      * @param args the command line arguments
