@@ -136,7 +136,7 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         textResumo1.setBackground(new java.awt.Color(204, 204, 255));
         textResumo1.setCaretColor(new java.awt.Color(204, 204, 255));
         textResumo1.setDisabledTextColor(new java.awt.Color(204, 204, 255));
-        jPanel1.add(textResumo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 600, -1));
+        jPanel1.add(textResumo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 630, -1));
 
         textResumo2.setBackground(new java.awt.Color(204, 204, 255));
         textResumo2.setCaretColor(new java.awt.Color(204, 204, 255));
@@ -147,7 +147,7 @@ public class trabalhorafa01 extends javax.swing.JFrame {
                 textResumo2ActionPerformed(evt);
             }
         });
-        jPanel1.add(textResumo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 600, -1));
+        jPanel1.add(textResumo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 630, -1));
 
         textResumo3.setBackground(new java.awt.Color(204, 204, 255));
         textResumo3.setCaretColor(new java.awt.Color(204, 204, 255));
@@ -157,7 +157,7 @@ public class trabalhorafa01 extends javax.swing.JFrame {
                 textResumo3ActionPerformed(evt);
             }
         });
-        jPanel1.add(textResumo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 600, -1));
+        jPanel1.add(textResumo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 630, -1));
 
         jLabel9.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         jLabel9.setText("PESO");
@@ -268,7 +268,7 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         }
         if (nome.length() > caracte) {
         } else {
-            JOptionPane.showMessageDialog(null, "“Legal se o seu nome fosse verdadeiro!");
+            JOptionPane.showMessageDialog(null, "Legal se o seu nome fosse verdadeiro!");
         }
         
         
@@ -276,12 +276,13 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         
         textResumo1.setText(fazerTratamento() + nome + " nascida no dia " + diaNasc + "/" + mesNasc + "/" + anoNasc +" é do signo " + gerarSigno(diaNasc, mesNasc) + " seu número da sorte é " +sorte + " sua cor é " + gerarCor());
         
-        textResumo2.setText(fazerTratamento() + nome + "você tem " + idade + "anos e seu peso é " + peso + " kg sua altura é " + altura + " m. ");
-   
-        {
-           
-        }
+        textResumo2.setText( "Você tem " + idade + " anos e seu peso é " + peso + " kg sua altura é " + altura + " m. ");
+    
        
+        {
+            
+        }
+       JOptionPane.showMessageDialog(null, "OBRIGADA POR SUA PARTICIPAÇÃO!");
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void textNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeActionPerformed
