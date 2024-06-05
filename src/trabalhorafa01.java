@@ -43,7 +43,6 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         textResumo1 = new javax.swing.JTextField();
         textResumo2 = new javax.swing.JTextField();
-        textResumo3 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         textPeso = new javax.swing.JTextField();
 
@@ -131,12 +130,12 @@ public class trabalhorafa01 extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         jLabel8.setText("RESUMO");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         textResumo1.setBackground(new java.awt.Color(204, 204, 255));
         textResumo1.setCaretColor(new java.awt.Color(204, 204, 255));
         textResumo1.setDisabledTextColor(new java.awt.Color(204, 204, 255));
-        jPanel1.add(textResumo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 630, -1));
+        jPanel1.add(textResumo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 630, -1));
 
         textResumo2.setBackground(new java.awt.Color(204, 204, 255));
         textResumo2.setCaretColor(new java.awt.Color(204, 204, 255));
@@ -147,17 +146,7 @@ public class trabalhorafa01 extends javax.swing.JFrame {
                 textResumo2ActionPerformed(evt);
             }
         });
-        jPanel1.add(textResumo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 630, -1));
-
-        textResumo3.setBackground(new java.awt.Color(204, 204, 255));
-        textResumo3.setCaretColor(new java.awt.Color(204, 204, 255));
-        textResumo3.setDisabledTextColor(new java.awt.Color(204, 204, 255));
-        textResumo3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textResumo3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(textResumo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 630, -1));
+        jPanel1.add(textResumo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 630, -1));
 
         jLabel9.setFont(new java.awt.Font("Cambria Math", 1, 18)); // NOI18N
         jLabel9.setText("PESO");
@@ -186,32 +175,33 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         textAltura.setText(null);
         textPeso.setText(null);
         JOptionPane.showMessageDialog(null, "Limpo com sucesso! ");
-
+      
     }//GEN-LAST:event_btLimparActionPerformed
 
-        public String gerarCor() {
+    public String gerarCor() {
         String cor[] = {"Roxo", "Vermelho", "Preto", "Branco", "Rosa", "Azul", "Laranja", "Verde", "Amarelo"};
         Random r = new Random();
         int numero = r.nextInt(9);
         return cor[numero];
 
     }
-        
-         public String fazerTratamento(){
+
+    public String fazerTratamento() {
         String trato = " ";
-        
-          if (btFem.isSelected()){
-              trato = "Sra. ";
-          }else{
-                if (btMasc.isSelected()){
-                  trato = " ";
-       
-                   trato = "Sr. ";
-                }
+
+        if (btFem.isSelected()) {
+            trato = "Sra. ";
+        } else {
+            if (btMasc.isSelected()) {
+                trato = " ";
+
+                trato = "Sr. ";
+            }
         }
         return trato;
-    }      
-          public String gerarSigno(int dia, int mes) {
+    }
+
+    public String gerarSigno(int dia, int mes) {
         String signo = "";
         if (dia >= 21 && dia <= 31 && mes == 3 || dia >= 01 && dia <= 20 && mes == 4) {
             signo = "Áries";
@@ -238,11 +228,12 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         } else if (dia >= 20 && dia <= 30 && mes == 2 || dia >= 1 && dia <= 20 && mes == 3) {
         }
         return signo;
-          }
-         
+    }
+
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
         String nome, signo;
         double altura, peso;
+        boolean terminou=false;
         int diaNasc, mesNasc, anoNasc, idade, sorte, caracte = 8;
         nome = textNome.getText();
         altura = Double.parseDouble(textAltura.getText());
@@ -250,11 +241,11 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         anoNasc = Integer.parseInt(textAno.getText());
         mesNasc = Integer.parseInt(textMes.getText());
         diaNasc = Integer.parseInt(textDia.getText());
-       
+
         idade = 2024 - anoNasc;
-        
+
         if (mesNasc >= 1 && mesNasc <= 12) {
-        
+
         } else {
             JOptionPane.showMessageDialog(null, "Mês inválido!");
         }
@@ -262,27 +253,54 @@ public class trabalhorafa01 extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Ano inválido!");
         }
-        if (diaNasc >= 1 && diaNasc <= 31) {
+        if (diaNasc >= 01 && diaNasc <= 31 && mesNasc == 3) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 30 && mesNasc == 4) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 31 && mesNasc == 5) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 30 && mesNasc == 6) {
+          
+        } else if (diaNasc >= 01 && diaNasc <= 31 && mesNasc == 7) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 31 && mesNasc == 8) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 30 && mesNasc == 9) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 31 && mesNasc == 10) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 30 && mesNasc == 11) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 31 && mesNasc == 12) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 31 && mesNasc == 1) {
+
+        } else if (diaNasc >= 01 && diaNasc <= 28 && mesNasc == 2) {
         } else {
-            JOptionPane.showMessageDialog(null, "Dia inválido!");
+            terminou = true;
+            
+            JOptionPane.showMessageDialog(null, "Dia inválido, digete novamente!");
+            textDia.setText(null);
+            textMes.setText(null);
+            textAno.setText(null);
+            textResumo1.setText(null);
+            textResumo2.setText(null);
         }
+        if(!terminou){
+            
         if (nome.length() > caracte) {
         } else {
             JOptionPane.showMessageDialog(null, "Legal se o seu nome fosse verdadeiro!");
         }
-        
-        
+
         sorte = (int) ((int) 1 + Math.random() * 99);
-        
-        textResumo1.setText(fazerTratamento() + nome + " nascida no dia " + diaNasc + "/" + mesNasc + "/" + anoNasc +" é do signo " + gerarSigno(diaNasc, mesNasc) + " seu número da sorte é " +sorte + " sua cor é " + gerarCor());
-        
-        textResumo2.setText( "Você tem " + idade + " anos e seu peso é " + peso + " kg sua altura é " + altura + " m. ");
-    
-       
-        {
-            
+
+        textResumo1.setText(fazerTratamento() + nome + " nascida no dia " + diaNasc + "/" + mesNasc + "/" + anoNasc + " é do signo " + gerarSigno(diaNasc, mesNasc) + " seu número da sorte é " + sorte + " sua cor é " + gerarCor());
+
+        textResumo2.setText("Você tem " + idade + " anos e seu peso é " + peso + " kg sua altura é " + altura + " m. ");
+
+        JOptionPane.showMessageDialog(null, "OBRIGADA POR SUA PARTICIPAÇÃO!");
         }
-       JOptionPane.showMessageDialog(null, "OBRIGADA POR SUA PARTICIPAÇÃO!");
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void textNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeActionPerformed
@@ -300,10 +318,6 @@ public class trabalhorafa01 extends javax.swing.JFrame {
     private void textResumo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textResumo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textResumo2ActionPerformed
-
-    private void textResumo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textResumo3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textResumo3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,6 +379,5 @@ public class trabalhorafa01 extends javax.swing.JFrame {
     private javax.swing.JTextField textPeso;
     private javax.swing.JTextField textResumo1;
     private javax.swing.JTextField textResumo2;
-    private javax.swing.JTextField textResumo3;
     // End of variables declaration//GEN-END:variables
 }
